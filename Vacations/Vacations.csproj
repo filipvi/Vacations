@@ -1,0 +1,274 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <UserSecretsId>aspnet-SimpleLab-7178978C-F5B6-4B6A-A624-B81F037ABEA9</UserSecretsId>
+    <!--<Nullable>enable</Nullable>-->
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Models\ViewModels\WorksheetR\**" />
+    <Compile Remove="Pages\**" />
+    <Compile Remove="Views\Report\**" />
+    <Compile Remove="wwwroot\js\app\controllers\worksheetResults\t03\**" />
+    <Compile Remove="wwwroot\js\app\controllers\worksheetResults\t04\**" />
+    <Content Remove="Models\ViewModels\WorksheetR\**" />
+    <Content Remove="Pages\**" />
+    <Content Remove="Views\Report\**" />
+    <Content Remove="wwwroot\js\app\controllers\worksheetResults\t03\**" />
+    <Content Remove="wwwroot\js\app\controllers\worksheetResults\t04\**" />
+    <EmbeddedResource Remove="Models\ViewModels\WorksheetR\**" />
+    <EmbeddedResource Remove="Pages\**" />
+    <EmbeddedResource Remove="Views\Report\**" />
+    <EmbeddedResource Remove="wwwroot\js\app\controllers\worksheetResults\t03\**" />
+    <EmbeddedResource Remove="wwwroot\js\app\controllers\worksheetResults\t04\**" />
+    <None Remove="Models\ViewModels\WorksheetR\**" />
+    <None Remove="Pages\**" />
+    <None Remove="Views\Report\**" />
+    <None Remove="wwwroot\js\app\controllers\worksheetResults\t03\**" />
+    <None Remove="wwwroot\js\app\controllers\worksheetResults\t04\**" />
+    <Compile Remove="Persistence\Migrations\20200602133450_NazivMigracije.cs" />
+    <Compile Remove="Persistence\Migrations\20200602133450_NazivMigracije.Designer.cs" />
+    <Compile Remove="Persistence\Migrations\20200602175358_AlterTableAnalysisRequisition.cs" />
+    <Compile Remove="Persistence\Migrations\20200602175358_AlterTableAnalysisRequisition.Designer.cs" />
+    <Compile Remove="Persistence\Migrations\20200602180655_AlterTableAnalysisRequisition.cs" />
+    <Compile Remove="Persistence\Migrations\20200602180655_AlterTableAnalysisRequisition.Designer.cs" />
+    <Compile Remove="Persistence\Migrations\20200604121822_AlterTableDetailedSoilInformation.cs" />
+    <Compile Remove="Persistence\Migrations\20200604121822_AlterTableDetailedSoilInformation.Designer.cs" />
+    <Compile Remove="Persistence\Migrations\20200617075406_AddSoilSamplingRequisitionStatusTable.cs" />
+    <Compile Remove="Persistence\Migrations\20200617075406_AddSoilSamplingRequisitionStatusTable.Designer.cs" />
+    <Compile Remove="Persistence\Migrations\20200623081636_Initial.cs" />
+    <Compile Remove="Persistence\Migrations\20200623081636_Initial.Designer.cs" />
+    <Compile Remove="Persistence\Migrations\20200623081922_Initial.cs" />
+    <Compile Remove="Persistence\Migrations\20200623081922_Initial.Designer.cs" />
+    <Compile Remove="Persistence\Migrations\20200625082256_Initial.cs" />
+    <Compile Remove="Persistence\Migrations\20200625082256_Initial.Designer.cs" />
+    <Compile Remove="Persistence\Migrations\20200702064451_Initial.cs" />
+    <Compile Remove="Persistence\Migrations\20200702064451_Initial.Designer.cs" />
+    <Compile Remove="Persistence\Migrations\20200922094256_AddWorksheetTables.cs" />
+    <Compile Remove="Persistence\Migrations\20200922094256_AddWorksheetTables.Designer.cs" />
+    <Compile Remove="Persistence\Migrations\20200922105602_AddWorksheetTables.cs" />
+    <Compile Remove="Persistence\Migrations\20200922105602_AddWorksheetTables.Designer.cs" />
+    <Compile Remove="Persistence\Migrations\20200922215911_AddWorksheetTables.cs" />
+    <Compile Remove="Persistence\Migrations\20200922215911_AddWorksheetTables.Designer.cs" />
+    <Compile Remove="Persistence\Migrations\20201207225639_UpdateAnalysisInquiry2.cs" />
+    <Compile Remove="Persistence\Migrations\20201207225639_UpdateAnalysisInquiry2.Designer.cs" />
+    <Compile Remove="Persistence\Migrations\20201207232817_UpdateAnalysisInquiry3.cs" />
+    <Compile Remove="Persistence\Migrations\20201207232817_UpdateAnalysisInquiry3.Designer.cs" />
+    <Compile Remove="Persistence\Migrations\20201207233908_UpdateAnalysisInquiry4.cs" />
+    <Compile Remove="Persistence\Migrations\20201207233908_UpdateAnalysisInquiry4.Designer.cs" />
+    <Content Update="wwwroot\js\app\services\labAnalysis\editSamplePreparationDataService.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Persistence\Migrations\20200219085403_InitialTest.cs" />
+    <Compile Remove="Persistence\Migrations\20200219085403_InitialTest.Designer.cs" />
+    <Compile Remove="Persistence\Migrations\20200219085551_Initial.cs" />
+    <Compile Remove="Persistence\Migrations\20200219085551_Initial.Designer.cs" />
+    <Compile Remove="Persistence\Migrations\20200223154735_AddAdditionalSoilSamplesTables.cs" />
+    <Compile Remove="Persistence\Migrations\20200223154735_AddAdditionalSoilSamplesTables.Designer.cs" />
+    <Compile Remove="Persistence\Migrations\20200223155100_AddAdditionalSoilSamplesTables.cs" />
+    <Compile Remove="Persistence\Migrations\20200223155100_AddAdditionalSoilSamplesTables.Designer.cs" />
+    <Compile Remove="Persistence\Migrations\20200224132337_Initial.cs" />
+    <Compile Remove="Persistence\Migrations\20200224132337_Initial.Designer.cs" />
+    <Compile Remove="Persistence\Migrations\20200308220704_Initial.cs" />
+    <Compile Remove="Persistence\Migrations\20200308220704_Initial.Designer.cs" />
+    <Compile Remove="Persistence\Migrations\20200309085220_Initial.cs" />
+    <Compile Remove="Persistence\Migrations\20200309085220_Initial.Designer.cs" />
+    <Compile Remove="Persistence\Migrations\20200311081252_Initial.cs" />
+    <Compile Remove="Persistence\Migrations\20200311081252_Initial.Designer.cs" />
+    <Compile Remove="Persistence\Migrations\20200407100522_AlterTablesSoilSampleAndDetailedSoilInformation.cs" />
+    <Compile Remove="Persistence\Migrations\20200407100522_AlterTablesSoilSampleAndDetailedSoilInformation.Designer.cs" />
+    <Compile Remove="Persistence\Migrations\20200420085720_UpdateSoilSample.cs" />
+    <Compile Remove="Persistence\Migrations\20200420085720_UpdateSoilSample.Designer.cs" />
+    <Compile Remove="Persistence\Migrations\20200423194539_Initial.cs" />
+    <Compile Remove="Persistence\Migrations\20200423194539_Initial.Designer.cs" />
+    <Compile Remove="Persistence\Migrations\20200428075422_DetailedSoilInformationAddFieldCropYield.cs" />
+    <Compile Remove="Persistence\Migrations\20200428075422_DetailedSoilInformationAddFieldCropYield.Designer.cs" />
+    <Compile Remove="Persistence\Migrations\20200428120624_DetailedSoilInformationChangeLastAnalysisYear.cs" />
+    <Compile Remove="Persistence\Migrations\20200428120624_DetailedSoilInformationChangeLastAnalysisYear.Designer.cs" />
+    <Compile Remove="Persistence\Migrations\20200514231424_Initial.cs" />
+    <Compile Remove="Persistence\Migrations\20200514231424_Initial.Designer.cs" />
+    <Compile Remove="Persistence\Migrations\20200515075053_NazivMigracije.cs" />
+    <Compile Remove="Persistence\Migrations\20200515075053_NazivMigracije.Designer.cs" />
+    <Compile Remove="Persistence\Migrations\20200515075338_UpdateAnalysisTypeMapTable.cs" />
+    <Compile Remove="Persistence\Migrations\20200515075338_UpdateAnalysisTypeMapTable.Designer.cs" />
+    <Compile Remove="Persistence\Migrations\20200517133513_UpdateAnalysisSampleTable.cs" />
+    <Compile Remove="Persistence\Migrations\20200517133513_UpdateAnalysisSampleTable.Designer.cs" />
+    <Compile Remove="Persistence\Migrations\20200519133831_UpdateTableAnalysisRequisition.cs" />
+    <Compile Remove="Persistence\Migrations\20200519133831_UpdateTableAnalysisRequisition.Designer.cs" />
+    <Compile Remove="Persistence\Migrations\20200520081818_UpdateAnalysisClientTable.cs" />
+    <Compile Remove="Persistence\Migrations\20200520081818_UpdateAnalysisClientTable.Designer.cs" />
+    <Compile Remove="Persistence\Migrations\20200527081354_Initial.cs" />
+    <Compile Remove="Persistence\Migrations\20200527081354_Initial.Designer.cs" />
+    <Compile Remove="Persistence\Migrations\20200527090021_AddRebateToBidItem.cs" />
+    <Compile Remove="Persistence\Migrations\20200527090021_AddRebateToBidItem.Designer.cs" />
+    <Compile Remove="Persistence\Migrations\20200527090132_AddRebateToBidItem.cs" />
+    <Compile Remove="Persistence\Migrations\20200527090132_AddRebateToBidItem.Designer.cs" />
+    <Compile Remove="Persistence\Migrations\20200602132756_NazivMigracije.cs" />
+    <Compile Remove="Persistence\Migrations\20200602132756_NazivMigracije.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_WebToolingArtifacts Remove="Properties\PublishProfiles\PublishTest.pubxml" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
+    <PackageReference Include="jQuery.InputMask" Version="5.0.7" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.6" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.6" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.6" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="6.0.6" />
+    <PackageReference Include="Microsoft.DotNet.PlatformAbstractions" Version="3.1.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.6">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Log4Net.AspNetCore" Version="6.1.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.6" />
+    <PackageReference Include="Nager.Date" Version="1.35.0" />
+    <PackageReference Include="RestSharp" Version="108.0.1" />
+    <PackageReference Include="SyrianBallaS.AutoMapper.Extensions.Microsoft.DependencyInjection.Signed" Version="3.2.0" />
+    <PackageReference Include="System.DirectoryServices.AccountManagement" Version="6.0.0" />
+    <PackageReference Include="Z.EntityFramework.Plus.EFCore" Version="6.14.2" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Folder Include="Core\Interfaces\" />
+    <Folder Include="Mapping\" />
+    <Folder Include="Models\DTOs\" />
+    <Folder Include="Models\Validators\" />
+    <Folder Include="Models\ViewModels\" />
+    <Folder Include="Persistence\Repositories\" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\calculations\calculateAshPercentage_OG5.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\calculations\calculateCNOdnos_OG12.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\calculations\calculateHY_T6.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\calculations\calculateMoisturePercentage_OG2.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\calculations\calculateMoisturePercentage_T2.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\calculations\calculateOcitanaVodljivostPretvoreno_OG4.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\calculations\calculateOcitanaVodljivostPretvoreno_T5.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\calculations\calculateOrganicMatter_OG6.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\calculations\calculateOrganicMatter_OG8.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\calculations\calculatePostotakAktivnogVapna_T18.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\calculations\calculatePostotakDusikaNaSt_OG34.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\calculations\calculatePostotakDusika_OG10.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\calculations\calculatePostotakDusika_OG11.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\calculations\calculatePostotakDusika_OG9.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\calculations\calculatePostotakDusika_T9.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\calculations\calculatePostotakKarbonata_T17.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\calculations\dryMatterCalculation_OG2.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\codexManagement\codexManagementAnalysisSampleTypeController.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\codexManagement\codexManagementArableLandWaterExcessesController.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\codexManagement\codexManagementCultivationMethodsController.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\codexManagement\codexManagementFieldCropCategoriesController.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\codexManagement\codexManagementFieldCropsController.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\codexManagement\codexManagementHarvestResiduesController.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\codexManagement\codexManagementIrrigationTypesController.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\codexManagement\codexManagementLandTypesController.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\codexManagement\codexManagementMeasurementDevicesController.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\codexManagement\codexManagementMechanicalSoilCompositionTypesController.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\codexManagement\codexManagementMineralFertilizationsController.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\codexManagement\codexManagementOrganicManureApplicationYearsController.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\codexManagement\codexManagementPlacesController.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\codexManagement\codexManagementPrecultureYieldsController.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\codexManagement\codexManagementProductionTypesController.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\codexManagement\codexManagementTerrainExposuresController.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\codexManagement\codexManagementTerrainSlopesController.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\codexManagement\codexManagementTerrainTypesController.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\soilSampling\createRequisitionSoilSamplesController.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\soilSampling\editRequisitionSoilSampleController.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\soilSampling\editRequisitionSoilSamplesController.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\soilSampling\requisitionSoilSamplesForAnalysisController.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\soilSampling\soilSamplesController.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\soilSampling\soilSamplingEditDetailedDataController.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\soilSampling\soilSamplingEditRequisitionController.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\soilSampling\soilSamplingInquiriesController.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\soilSampling\soilSamplingInquiryDetailsController.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\soilSampling\soilSamplingNewInquiryController.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\soilSampling\soilSamplingNewInquiryExcelController.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\soilSampling\soilSamplingRequisitionDetailsController.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\soilSampling\soilSamplingRequisitionsController.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\worksheetResults\og02\addFinalResultOG2Controller.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\worksheetResults\og02\confirmWorksheetResultsOG2Controller.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\worksheetResults\og02\editWorksheetResultsModalOG2Controller.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\worksheetResults\og04\addFinalResultOG4Controller.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\worksheetResults\og04\confirmWorksheetResultsOG4Controller.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\worksheetResults\og04\editWorksheetResultsModalOG4Controller.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\worksheetResults\og05\addFinalResultOG5Controller.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\worksheetResults\og05\confirmWorksheetResultsOG5Controller.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\worksheetResults\og05\editWorksheetResultsModalOG5Controller.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\worksheetResults\og06\addFinalResultOG6Controller.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\worksheetResults\og06\confirmWorksheetResultsOG6Controller.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\worksheetResults\og06\editWorksheetResultsModalOG6Controller.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\worksheetResults\og08\addFinalResultOG8Controller.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\worksheetResults\og08\confirmWorksheetResultsOG8Controller.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\worksheetResults\og08\editWorksheetResultsModalOG8Controller.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\worksheetResults\og09\addFinalResultOG9Controller.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\worksheetResults\og09\confirmWorksheetResultsOG9Controller.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\worksheetResults\og09\editWorksheetResultsModalOG9Controller.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\worksheetResults\og10\addFinalResultOG10Controller.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\worksheetResults\og10\confirmWorksheetResultsOG10Controller.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\worksheetResults\og10\editWorksheetResultsModalOG10Controller.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\worksheetResults\og11\addFinalResultOG11Controller.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\worksheetResults\og11\confirmWorksheetResultsOG11Controller.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\worksheetResults\og11\editWorksheetResultsModalOG11Controller.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\worksheetResults\og12\addFinalResultOG12Controller.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\worksheetResults\og12\confirmWorksheetResultsOG12Controller.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\worksheetResults\og12\editWorksheetResultsModalOG12Controller.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\worksheetResults\og34\addFinalResultOG34Controller.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\worksheetResults\og34\confirmWorksheetResultsOG34Controller.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\worksheetResults\og34\editWorksheetResultsModalOG34Controller.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\worksheetResults\t02\addFinalResultT2Controller.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\worksheetResults\t02\confirmWorksheetResultsT2Controller.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\worksheetResults\t02\editWorksheetResultsModalT2Controller.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\worksheetResults\t05\addFinalResultT5Controller.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\worksheetResults\t05\confirmWorksheetResultsT5Controller.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\worksheetResults\t05\editWorksheetResultsModalT5Controller.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\worksheetResults\t06\addFinalResultT6Controller.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\worksheetResults\t06\confirmWorksheetResultsT6Controller.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\worksheetResults\t06\editWorksheetResultsModalT6Controller.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\worksheetResults\t09\addFinalResultT9Controller.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\worksheetResults\t09\confirmWorksheetResultsT9Controller.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\worksheetResults\t09\editWorksheetResultsModalT9Controller.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\worksheetResults\t17\addFinalResultT17Controller.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\worksheetResults\t17\confirmWorksheetResultsT17Controller.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\worksheetResults\t17\editWorksheetResultsModalT17Controller.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\worksheetResults\t18\addFinalResultT18Controller.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\worksheetResults\t18\confirmWorksheetResultsT18Controller.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\worksheetResults\t18\editWorksheetResultsModalT18Controller.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\controllers\worksheetResults\validationManagerRootPropertiesController.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\services\codexManagement\codexManagementAnalysisSampleTypeService.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\services\codexManagement\codexManagementArableLandWaterExcessesService.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\services\codexManagement\codexManagementCultivationMethodsService.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\services\codexManagement\codexManagementFieldCropCategoriesService.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\services\codexManagement\codexManagementFieldCropsService.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\services\codexManagement\codexManagementHarvestResiduesService.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\services\codexManagement\codexManagementIrrigationTypesService.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\services\codexManagement\codexManagementLandTypesService.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\services\codexManagement\codexManagementMeasurementDevicesService.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\services\codexManagement\codexManagementMechanicalSoilCompositionTypesService.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\services\codexManagement\codexManagementMineralFertilizationsService.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\services\codexManagement\codexManagementOrganicManureApplicationYearsService.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\services\codexManagement\codexManagementPlacesService.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\services\codexManagement\codexManagementPrecultureYieldsService.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\services\codexManagement\codexManagementProductionTypesService.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\services\codexManagement\codexManagementTerrainExposuresService.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\services\codexManagement\codexManagementTerrainSlopesService.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\services\codexManagement\codexManagementTerrainTypesService.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\app\services\userManagement\userManagementService.js" />
+  </ItemGroup>
+
+</Project>

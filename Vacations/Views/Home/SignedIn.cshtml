@@ -1,0 +1,43 @@
+﻿@inject IOptions<AppSettings> _appSettings
+
+@using Vacations.Utilities.Extensions
+
+@{
+    ViewData["Title"] = "Login successful";
+    ViewData["PageName"] = "home_signedIn";
+    ViewData["Category1"] = "Login";
+}
+
+<div class="col-sm-12 col-md-10 col-lg-6 col-xl-8 m-auto">
+    <div class="card p-4 rounded-plus bg-faded text-center">
+        <span style="font-size: 5em;" class="text-success">
+            <i class="far fa-check mr-2"></i>
+        </span>
+        <h5 class="card-title fw-900 fs-xxl text-success">Login into @_appSettings.Value.Application.Name successful</h5>
+        <br>
+        <div class="row">
+            <div class="col-xl-6 col-md-12 col-sm-12">
+                <div class="p-2 bg-primary-300 rounded overflow-hidden position-relative text-white mb-g">
+                    <div class="">
+                        <h3 class="d-block l-h-n m-0 fw-500">
+                            <strong class="fw-900">@User.GetLoggedInUserName()</strong>
+                            <small class="m-0 l-h-n font-italic">User name</small>
+                        </h3>
+                    </div>
+                    <i class="fal fa-user position-absolute pos-right pos-bottom opacity-15 mb-n1 mr-n1" style="font-size:6rem"></i>
+                </div>
+            </div>
+            <div class="col-xl-6 col-md-12 col-sm-12">
+                <div class="p-2 bg-primary-300 rounded overflow-hidden position-relative text-white mb-g">
+                    <div class="">
+                        <h3 class="d-block l-h-n m-0 fw-500">
+                            <strong class="fw-900">@User.GetLoggedInUserRole()</strong>
+                            <small class="m-0 l-h-n font-italic">User role</small>
+                        </h3>
+                    </div>
+                    <i class="fal fa-user position-absolute pos-right pos-bottom opacity-15 mb-n1 mr-n1" style="font-size:6rem"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

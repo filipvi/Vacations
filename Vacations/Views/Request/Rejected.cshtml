@@ -1,0 +1,46 @@
+﻿@model Vacations.Models.ViewModels.Request.IndexVacationRequestAdminViewModel
+
+@{
+    ViewData["Title"] = "Requests";
+    ViewData["PageName"] = "request_rejected";
+    ViewData["Category1"] = "Rejected requests";
+}
+
+@section Header
+{
+        <link href="~/css/formplugins/bootstrap-datepicker/bootstrap-datepicker.css" rel="stylesheet"/>
+        <link href="~/css/datatables/datatables.bundle.css" rel="stylesheet" />
+}
+
+<div class="subheader">
+    <h1 class="subheader-title text-dark fw-700">
+        <i class="subheader-icon far fa-eraser text-dark"></i> Rejected vacation requests
+    </h1>
+</div>
+
+<partial name="_AdminRequestsTable" />
+
+@section Scripts
+{
+    <script src="~/js/datatables/datatables.bundle.js"></script>
+    <script src="~/js/datatables/dataTables.buttons.min.js"></script>
+    <script src="~/js/formplugins/bootstrap-datepicker/bootstrap-datepicker.js"></script>
+
+        <script src="~/js/app/services/indexRequestService.js"></script>
+    <script src="~/js/app/controllers/indexRequestController.js"></script>
+
+    <script>
+
+        $(document).ready(function () {
+
+            var urlInfo = {};
+            urlInfo.getDataUrl = '@Url.Action("GetAdminRequests", "Request")';
+            urlInfo.getRequestDetailsUrl = '@Url.Action("AdminDetails", "Request")';
+
+            var statusIdInfo = @Model.StatusId;
+
+            indexRequestController.init(urlInfo, statusIdInfo);
+        });
+
+    </script>
+}

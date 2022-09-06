@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Error";
+    ViewData["PageName"] = "Error";
+    ViewData["Category1"] = "Error";
+}
+
+<div class="h-alt-f d-flex flex-column align-items-center text-center small">
+    <h1 class="text-danger fw-900 fs-xxl">
+        USER NOT FOUND!
+    </h1>
+    <hr class="w-75 dividerHr" />
+    <h3 class="fw-700 text-danger">
+        Error occured while searching employees.
+    </h3>
+
+    <h4 class="fw-700">
+        Try again or go to application public part
+        <hr class="dividerHr w-50" />
+        <a href="/identity/account/login" class="btn btn-primary waves-effect waves-themed">
+            <span class="far fa-user mr-2"></span>Log in
+        </a>
+    </h4>
+
+</div>

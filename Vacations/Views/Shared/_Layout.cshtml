@@ -1,0 +1,45 @@
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <partial name="_Head" />
+    @await RenderSectionAsync("Header", required: false)
+</head>
+<body class="">
+    <partial name="_ScriptsLoadingSaving" />
+    <div class="page-wrapper">
+        <div class="page-inner">
+            <partial name="_LeftPanel" />
+            <div class="page-content-wrapper">
+                <partial name="_PageHeader" />
+                <main id="js-page-content" role="main" class="page-content">
+                    <partial name="_PageBreadCrumb" />
+                    @await RenderSectionAsync("PageHeading", required: false)
+                    <partial name="_Message" />
+                    @RenderBody()
+                    <partial name="_LoadingSpinner" />
+                </main>
+                <partial name="_PageContentOverlay" />
+                <partial name="_PageFooter" />
+                <partial name="_ShortcutModal" />
+            </div>
+        </div>
+    </div>
+    <partial name="_ShortCutMenu" />
+    <partial name="_ShortCutMessenger" />
+    <partial name="_PageSettings" />
+    <partial name="_GoogleAnalytics" />
+    <partial name="_ScriptBasePlugins" />
+    <partial name="_ScriptMessageTemplate" />
+
+    @await RenderSectionAsync("Scripts", required: false)
+    
+    <script type="text/javascript">
+
+        $(window).on('load',
+            function() {
+                $('body').addClass('footer-function-fixed');
+            });
+    </script>
+</body>
+</html>

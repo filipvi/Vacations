@@ -1,0 +1,202 @@
+﻿@using Vacations.Models.Enums
+@model Vacations.Models.ViewModels.Request.DetailsVacationRequestViewModel
+
+@{
+    ViewBag.Title = "Details";
+    ViewData["Category1"] = "My requests";
+    ViewData["Category1Href"] = "/request/myVacationRequests";
+    ViewData["PageName"] = "request_details";
+
+    var badgeClass = "";
+
+    switch (@Model.VacationRequestStatusId)
+    {
+        case (int) VacationRequestStatusEnums.Pending:
+            badgeClass = "secondary";
+            break;
+        case (int) VacationRequestStatusEnums.Approved:
+            badgeClass = "success";
+            break;
+        case (int) VacationRequestStatusEnums.Invalid:
+            badgeClass = "danger";
+            break;
+        case (int) VacationRequestStatusEnums.Rejected:
+            badgeClass = "danger";
+            break;
+    }
+}
+
+@section Header
+{
+    <link href="~/css/datatables/datatables.bundle.css" rel="stylesheet"/>
+}
+
+<div class="subheader">
+    <h1 class="subheader-title text-dark fw-700">
+        <i class="subheader-icon far fa-edit text-dark"></i> Vacation request
+        <small class="fw-400 mt-1 ml-6">
+            <span class="badge badge-@badgeClass p-2 px-4">@Model.VacationRequestStatus</span>
+        </small>
+    </h1>
+</div>
+
+<div class="row">
+    <div class="col-xl-12 col-md-12 col-sm-12">
+        <div class="panel">
+            <div class="panel-hdr bg-primary-700 text-white">
+                <h2>
+                    <i class="far fa-info-circle mr-2"></i> Basic data
+                </h2>
+                <div class="panel-toolbar d-none d-md-block d-lg-none d-md-block d-lg-none d-lg-block d-xl-none d-xl-block">
+                    <button type="button" class="btn btn-panel btn-info waves-effect waves-themed" data-container="body" data-toggle="popover" data-placement="auto" data-content="" data-original-title="" title="Details">
+                        <i class="far fa-question"></i>
+                    </button>
+                    <button class="btn btn-panel waves-effect waves-themed" data-action="panel-collapse" data-toggle="tooltip" data-offset="0,10" data-original-title="Proširi/Smanji">
+                        <i class="far fa-angle-double-up"></i>
+                    </button>
+                    <button class="btn btn-panel waves-effect waves-themed" data-action="panel-fullscreen" data-toggle="tooltip" data-offset="0,10" data-original-title="Cijeli ekran">
+                        <i class="far fa-arrows"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="panel-container show">
+                <div class="panel-content">
+                    <fieldset disabled>
+                        <div class="row">
+                            <div class="col-xl-4 col-md-3 col-sm-4">
+                                <div class="form-group">
+                                    <label class="form-label" asp-for="DateCreated"></label>
+                                    <input type="text" asp-for="DateCreated" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-md-3 col-sm-4">
+                                <div class="form-group">
+                                    <label class="form-label" asp-for="StartDate"></label>
+                                    <input type="text" asp-for="StartDate" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-md-3 col-sm-4">
+                                <div class="form-group">
+                                    <label class="form-label" asp-for="EndDate"></label>
+                                    <input type="text" asp-for="EndDate" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-md-3 col-sm-4">
+                                <div class="form-group">
+                                    <label class="form-label" asp-for="YearInfo"></label>
+                                    <input type="text" asp-for="YearInfo" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-md-3 col-sm-4">
+                                <div class="form-group">
+                                    <label class="form-label" asp-for="DurationInDays"></label>
+                                    <input type="text" asp-for="DurationInDays" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-md-3 col-sm-4">
+                                <div class="form-group">
+                                    <label class="form-label" asp-for="DurationInWorkingDays"></label>
+                                    <input type="text" asp-for="DurationInWorkingDays" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-xl-12 col-md-12 col-sm-12">
+                                <div class="form-group">
+                                    <label class="form-label" asp-for="Description"></label>
+                                    <input type="text" asp-for="Description" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <partial name="_VacationRequestDetailsButtonsTemplate"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+        <div class="col-xl-6 col-md-12 col-sm-12">
+            <div class="panel">
+                <div class="panel-hdr bg-primary-700 text-white">
+                    <h2>
+                        <i class="far fa-info-circle mr-2"></i> Replacement employees
+                    </h2>
+                    <div class="panel-toolbar d-none d-md-block d-lg-none d-md-block d-lg-none d-lg-block d-xl-none d-xl-block">
+                        <button type="button" class="btn btn-panel btn-info waves-effect waves-themed" data-container="body" data-toggle="popover" data-placement="auto" data-content="" data-original-title="" title="Details">
+                            <i class="far fa-question"></i>
+                        </button>
+                        <button class="btn btn-panel waves-effect waves-themed" data-action="panel-collapse" data-toggle="tooltip" data-offset="0,10" data-original-title="Proširi/Smanji">
+                            <i class="far fa-angle-double-up"></i>
+                        </button>
+                        <button class="btn btn-panel waves-effect waves-themed" data-action="panel-fullscreen" data-toggle="tooltip" data-offset="0,10" data-original-title="Cijeli ekran">
+                            <i class="far fa-arrows"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="panel-container show">
+                    <div class="panel-content">
+                        <partial name="_DetailsReplacementEmployeesTable"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+  <div class="col-xl-6 col-md-12 col-sm-12">
+            <div class="panel">
+                <div class="panel-hdr bg-primary-700 text-white">
+                    <h2>
+                        <i class="far fa-info-circle mr-2"></i> Responses
+                    </h2>
+                    <div class="panel-toolbar d-none d-md-block d-lg-none d-md-block d-lg-none d-lg-block d-xl-none d-xl-block">
+                        <button type="button" class="btn btn-panel btn-info waves-effect waves-themed" data-container="body" data-toggle="popover" data-placement="auto" data-content="" data-original-title="" title="Details">
+                            <i class="far fa-question"></i>
+                        </button>
+                        <button class="btn btn-panel waves-effect waves-themed" data-action="panel-collapse" data-toggle="tooltip" data-offset="0,10" data-original-title="Proširi/Smanji">
+                            <i class="far fa-angle-double-up"></i>
+                        </button>
+                        <button class="btn btn-panel waves-effect waves-themed" data-action="panel-fullscreen" data-toggle="tooltip" data-offset="0,10" data-original-title="Cijeli ekran">
+                            <i class="far fa-arrows"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="panel-container show">
+                    <div class="panel-content">
+                        <partial name="_DetailsResponsesTable"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+
+@section Scripts
+{
+    <script src="~/js/datatables/datatables.bundle.js"></script>
+        <script src="~/js/app/helper/dtCustomSort.js"></script>
+    <script src="~/js/app/services/detailsRequestService.js"></script>
+    <script src="~/js/app/controllers/detailsRequestController.js"></script>
+    
+    <script>
+
+$(document).ready(function () {
+
+       // URL's initialization
+               var urlInfo = {};
+       
+               urlInfo.detailsRequestUrl = '@Url.Action("AdminDetails", "Request")';
+               urlInfo.myRequestsUrl = '@Url.Action("MyVacationRequests", "Request")';
+               urlInfo.deleteRequestUrl = '@Url.Action("Delete", "Request")';
+               urlInfo.getChangeRequestStatusModalUrl = '@Url.Action("GetChangeStatusModal", "Request")';
+               urlInfo.changeRequestStatusUrl = '@Url.Action("ChangeStatus", "Request")';
+       
+               var idInfo = @Html.Raw(Json.Serialize(Model.Id));
+       
+                 var statusEnumsInfo = {};
+                       statusEnumsInfo.pending = @((int) VacationRequestStatusEnums.Pending);
+                       statusEnumsInfo.approved = @((int) VacationRequestStatusEnums.Approved);
+                       statusEnumsInfo.rejected = @((int) VacationRequestStatusEnums.Rejected);
+                       statusEnumsInfo.invalid = @((int) VacationRequestStatusEnums.Invalid);
+       
+               detailsRequestController.init(urlInfo, idInfo, statusEnumsInfo);
+    });
+
+    </script>
+
+}

@@ -1,0 +1,174 @@
+﻿@model Vacations.Models.ViewModels.Domain.DetailsCompanyViewModel
+
+@{
+    ViewBag.Title = "Company details";
+    ViewData["Category1"] = "Companies";
+    ViewData["Category1Href"] = "/domain/companies/";
+    ViewData["PageName"] = "domain_detailsCompany";
+}
+
+@section Header
+{
+    <link href="~/css/datatables/datatables.bundle.css" rel="stylesheet"/>
+}
+
+<div class="subheader">
+    <h1 class="subheader-title text-dark fw-700">
+        <i class="subheader-icon far fa-info-circle text-dark"></i> Company details
+    </h1>
+</div>
+
+<div class="row">
+    <div class="col-xl-4 col-md-12 col-sm-12">
+        <div class="panel">
+            <div class="panel-hdr bg-primary-700 text-white">
+                <h2>
+                    <i class="far fa-info-circle mr-2 mb-1"></i> Basic data<span class="fw-400"></span>
+                </h2>
+                <div class="panel-toolbar">
+                    <button type="button" class="btn btn-panel btn-info waves-effect waves-themed" data-container="body" data-toggle="popover" data-placement="auto" data-content="" data-original-title="" title="">
+                        <i class="far fa-question"></i>
+                    </button>
+                    <button class="btn btn-panel waves-effect waves-themed" data-action="panel-collapse" data-offset="0,10" data-original-title="Proširi/Smanji">
+                        <i class="far fa-angle-double-up"></i>
+                    </button>
+                    <button class="btn btn-panel waves-effect waves-themed" data-action="panel-fullscreen" data-toggle="tooltip" data-offset="0,10" data-original-title="Cijeli ekran">
+                        <i class="far fa-arrows"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="panel-container collapse show">
+                <div class="panel-content">
+                    <fieldset disabled>
+                        <div class="row">
+                            <div class="col-xl-12 col-md-12 col-sm-12">
+                                <div class="form-group">
+                                    <label asp-for="Name" class="form-label"></label>
+                                    <input type="text" asp-for="Name" class="form-control"/>
+                                </div>
+                            </div>
+                            <div class="col-xl-12 col-md-12 col-sm-12">
+                                <div class="form-group">
+                                    <label asp-for="Description" class="form-label"></label>
+                                    <input type="text" asp-for="Description" class="form-control"/>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <partial name="_DetailsCompanyButtonsTemplate"/>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-8 col-md-12 col-sm-12">
+        <div class="panel">
+            <div class="panel-hdr bg-primary-700 text-white">
+                <h2>
+                    <i class="far fa-list-alt mr-2 mb-1"></i> Departments<span class="fw-400"></span>
+                    <a asp-controller="Domain" asp-action="CreateDepartment" asp-route-companyId="@Model.Id" class="btn btn-info btn-sm waves-effect waves-themed ml-2">
+                        <span class="far fa-plus-circle mr-1"></span> New department
+                    </a>
+                </h2>
+                <div class="panel-toolbar">
+                    <button type="button" class="btn btn-panel btn-info waves-effect waves-themed" data-container="body" data-toggle="popover" data-placement="auto" data-content="" data-original-title="" title="">
+                        <i class="far fa-question"></i>
+                    </button>
+                    <button class="btn btn-panel waves-effect waves-themed" data-action="panel-collapse" data-offset="0,10" data-original-title="Proširi/Smanji">
+                        <i class="far fa-angle-double-up"></i>
+                    </button>
+                    <button class="btn btn-panel waves-effect waves-themed" data-action="panel-fullscreen" data-toggle="tooltip" data-offset="0,10" data-original-title="Cijeli ekran">
+                        <i class="far fa-arrows"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="panel-container collapse show">
+                <div class="panel-content">
+                    <table class="table table-hover table-bordered table-striped nowrap dataTable w-100 display" id="dtDepartments">
+                        <thead class="bg-gray-300">
+                        <tr>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Number of employees</th>
+                            <th class="no-sort">Delete</th>
+                            <th class="no-sort">Details</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach (var department in Model.Departments)
+                        {
+                            <tr>
+                                <td>@department.Name</td>
+                                <td>@department.Description</td>
+                                <td>@department.NumberOfEmployees</td>
+                                <td>@department.Id</td>
+                                <td>@department.Id</td>
+                            </tr>
+                        }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts
+{
+    <script src="~/js/datatables/datatables.bundle.js"></script>
+    <script src="/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+
+    <script>
+
+    $(document).ready(function () {
+
+        var deleteDepartment = '@Url.Action("DeleteDepartment", "Domain")';
+        var detailsDepartment = '@Url.Action("DetailsDepartment", "Domain")';
+
+        $.fn.dataTable.ext.errMode = 'none';
+        
+        $('#dtDepartments').DataTable({
+            responsive: true,
+            lengthMenu: [10, 25, 50],
+            order: [[0, "asc"]],
+            'columns': [
+                { data: 'name' },
+                { data: 'description' },
+                { data: 'numberOfDepartments' },
+                { data: 'id' },
+                { data: 'id' }
+            ],
+            'columnDefs': [
+            { className: 'dt-center', targets: "_all" },
+                            { orderable: false, targets: "no-sort" },
+            {
+            'render': function (data, type, row, full) {
+            return dataRenderButton(deleteDepartment, row.id, "Delete department", "btn-danger", "fa-trash-alt");
+            },'targets': 3
+            },    
+            {
+            'render': function (data, type, row, full) {
+            return dataRenderSamePage(detailsDepartment, row.id, "Department details", "btn-info", "fa-info-circle");
+            },'targets': 4
+            },
+            { responsivePriority: 1, targets: 0 },
+            { responsivePriority: 2, targets: 1 }
+            ]
+        });
+
+        $('#dtDepartments')
+            .on('error.dt',
+                function (e, settings, techNote, message) {
+                    var splitted = message.split('-');
+                    messageService.showToastrMessage(splitted[1], 'error');
+                })
+            .DataTable();
+
+    });
+
+</script>
+
+
+}

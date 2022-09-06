@@ -1,0 +1,20 @@
+﻿{
+  "version": "4",
+  "lists": [
+    {
+      "title": "VACATION REQUESTS"
+    },
+    {
+      "title": "New vacation request",
+      "icon": "far fa-plus-circle text-white",
+      "showOnSeed": true,
+      "href": "request_create.html"
+    },
+    {
+      "title": "My vacation requests",
+      "icon": "far fa-list-alt text-white",
+      "showOnSeed": true,
+      "href": "request_myVacationRequests.html"
+    }
+  ]
+}

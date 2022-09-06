@@ -1,0 +1,122 @@
+﻿@model Vacations.Models.ViewModels.Domain.IndexDepartmentViewModel
+
+@{
+    ViewData["Title"] = "Departments";
+    ViewData["PageName"] = "domain_departments";
+    ViewData["Category1"] = "Departments";
+}
+
+@section Header
+{
+    <link href="~/css/datatables/datatables.bundle.css" rel="stylesheet"/>
+}
+
+@*Header*@
+<div class="subheader">
+    <h2 class="subheader-title text-dark fw-700">
+        <i class="subheader-icon far fa-th-list"></i> Departments
+        <small class="fw-400 mt-1 ml-4">
+            Showing all active departments
+        </small>
+    </h2>
+</div>
+
+@*DataTable*@
+<div class="row">
+    <div class="col-xl-12">
+
+        @*Panel*@
+        <div class="panel">
+
+            @*Panel header*@
+            <div class="panel-hdr bg-primary-700 text-white">
+                <h2>
+                    <span class="far fa-list-ul mr-2"></span>Departments
+                </h2>
+
+                <div class="panel-toolbar">
+                    <button class="btn btn-panel btn-info waves-effect waves-themed" data-container="body" data-toggle="popover" data-placement="auto" data-content="" data-original-title="" title="">
+                        <i class="far fa-question"></i>
+                    </button>
+                    <button class="btn btn-panel waves-effect waves-themed" data-action="panel-collapse" data-toggle="tooltip" data-offset="0,10" data-original-title="Proširi/Smanji">
+                        <i class="far fa-angle-double-up"></i>
+                    </button>
+                    <button class="btn btn-panel waves-effect waves-themed" data-action="panel-fullscreen" data-toggle="tooltip" data-offset="0,10" data-original-title="Cijeli ekran">
+                        <i class="far fa-arrows"></i>
+                    </button>
+                </div>
+            </div>
+
+            @*Content*@
+            <div class="panel-container show">
+                <div class="panel-content">
+
+                    <table class="table table-hover table-bordered table-striped dataTable w-100 display" id="dtDepartments">
+                        <thead class="bg-gray-300 text-dark">
+                        <tr>
+                            <th>Company name</th>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Number of employees</th>
+                            <th class="no-sort">Detalji</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach (var department in Model.Departments)
+                        {
+                            <tr>
+                                <td>@department.CompanyName</td>
+                                <td>@department.Name</td>
+                                <td>@department.Description</td>
+                                <td>@department.NumberOfEmployees</td>
+                                <td>@department.Id</td>
+                            </tr>
+                        }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts
+{
+    <script src="~/js/datatables/datatables.bundle.js"></script>
+
+    <script>
+
+        $(document).ready(function () {
+            
+              var departmentDetailsUrl = '@Url.Action("DetailsDepartment", "Domain")';
+            
+               $.fn.dataTable.ext.errMode = 'none';
+       
+               $('#dtDepartments').DataTable({
+                   'pagingType': 'numbers',
+                   responsive: true,
+                   order: [[0, "desc"]],
+                   lengthMenu: [10, 25, 50],
+                   'columns': [
+                       {data: 'companyName'},
+                       {data: 'name'},
+                       { data: 'description' },
+                       { data: 'numberOfEmployees' },
+                       { data: 'id' }
+                   ],
+                   'columnDefs': [
+                       { className: 'dt-center', targets: "_all" },
+                       { orderable: false, targets: "no-sort" },
+                       {
+                           'render': function (data, type, row, full) {
+                               return dataRenderSamePage(departmentDetailsUrl, row.id, "Department details", "btn-info", "fa-info-circle");
+                           },
+                           'targets': 4
+                       },
+                   ]
+               });
+        });
+
+    </script>
+}

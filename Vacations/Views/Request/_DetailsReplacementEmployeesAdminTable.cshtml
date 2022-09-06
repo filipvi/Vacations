@@ -1,0 +1,19 @@
+﻿@model Vacations.Models.ViewModels.Request.DetailsVacationRequestAdminViewModel
+
+<table class="table table-sm table-hover table-bordered table-striped dataTable w-100 display" id="dtReplacementEmployees">
+    <thead class="bg-secondary">
+    <tr>
+        <th class="no-sort">Name</th>
+        <th class="no-sort">Department</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model.ReplacementEmployees)
+    {
+        <tr>
+            <td>@item.FullName</td>
+            <td>@item.Department</td>
+        </tr>
+    }
+    </tbody>
+</table>

@@ -1,0 +1,45 @@
+﻿@model Vacations.Models.ViewModels.Domain.CreateDepartmentViewModel
+
+@*Laptop*@
+<div class="row d-none d-md-block d-lg-none d-md-block d-lg-none d-lg-block d-xl-none d-xl-block">
+    <div class="d-flex mt-2">
+        <a asp-controller="Domain" asp-action="DetailsCompany" asp-route-id="@Model.CompanyId" class="btn btn-secondary opacity-80 waves-effect waves-themed mr-2 ml-auto">
+            <span class="far fa-undo mr-1"></span> Company details
+        </a>
+        <button type="submit" class="btn btn-success bg-success-gradient waves-effect waves-themed mr-2">
+            <span class="far fa-save mr-1"></span> Save data
+        </button>
+    </div>
+</div>
+
+
+@*Tablet*@
+<div class="d-none d-sm-block d-md-none mt-2">
+    <div class="row">
+        <div class="col-6">
+            <a asp-controller="Domain" asp-action="DetailsCompany" asp-route-id="@Model.CompanyId" class="btn btn-secondary btn-block opacity-80 waves-effect waves-themed mr-2 ml-auto">
+                       <span class="far fa-undo mr-1"></span> Company details
+                   </a>
+        </div>
+        <div class="col-6">
+            <button type="submit" class="btn btn-success btn-block bg-success-gradient waves-effect waves-themed mr-2">
+                <span class="far fa-save mr-1"></span> Save data
+            </button>
+        </div>
+    </div>
+</div>
+
+
+@*Mobile*@
+<div class="row d-block d-sm-none mt-2">
+    <div class="col-lg-12">
+        <div class="frame-wrap">
+            <a asp-controller="Domain" asp-action="DetailsCompany" asp-route-id="@Model.CompanyId" class="btn btn-secondary btn-block opacity-80 waves-effect waves-themed mr-2 ml-auto">
+                       <span class="far fa-undo mr-1"></span> Company details
+                   </a>
+            <button type="submit" class="btn btn-success btn-block bg-success-gradient waves-effect waves-themed mr-2">
+                <span class="far fa-save mr-1"></span> Save data
+            </button>
+        </div>
+    </div>
+</div>

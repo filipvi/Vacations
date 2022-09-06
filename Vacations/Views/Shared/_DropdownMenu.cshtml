@@ -1,0 +1,58 @@
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using Vacations.Utilities.Extensions
+
+
+@if (User.Identity.IsAuthenticated)
+{
+    <div class="dropdown-header bg-trans-gradient d-flex flex-row py-4 rounded-top">
+        <div class="d-flex flex-row align-items-center mt-1 mb-1 color-white ml-auto mr-auto">
+            <div class="info-card-text small text-center">
+                <span class="font-weight-bold">User name:</span>
+                <span class="opacity-80" style="font-size: 12px;">@(User.GetLoggedInUserName())</span>
+                <div class="dropdown-divider m-0"></div>
+                <span class="font-weight-bold mt-3">User role:</span>
+                <span class="opacity-80" style="font-size: 12px;">@(User.GetLoggedInUserRole())</span>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="dropdown-header bg-trans-gradient d-flex flex-row py-4 rounded-top">
+        <div class="d-flex flex-row align-items-center mt-1 mb-1 color-white">
+            <span class="mr-2">
+                <span class="far fa-user-cog fa-2x mr-2"></span>
+            </span>
+            <div class="info-card-text small">
+                <span class="font-weight-bold">You aren't logged in</span>
+                <span class="opacity-80" style="font-size: 12px;">Sign in for more </span>
+            </div>
+        </div>
+    </div>
+}
+
+<div class="dropdown-divider m-0"></div>
+
+
+@if (User.Identity.IsAuthenticated)
+{
+    <a href="~/manual/manual.pdf" download="" class="dropdown-item">
+        <span class="far fa-download mr-2"></span><span data-i18n="drpdwn.settings">Manual</span>
+    </a>
+
+    <div class="dropdown-divider m-0"></div>
+
+    <a class="dropdown-item pt-3 pb-3 text-danger" asp-area="Identity" asp-page="/Account/Logout">
+        <span class="far fa-sign-out mr-2"></span><span data-i18n="drpdwn.page-logout">Logout</span>
+    </a>
+}
+else
+{
+    <a href="~/manual/manual.pdf" download="" class="dropdown-item">
+        <span class="far fa-download mr-2"></span><span data-i18n="drpdwn.settings">Manual</span>
+    </a>
+
+    <a href="/identity/account/login" class="dropdown-item text-success">
+        <span class="far fa-user mr-2"></span><span data-i18n="drpdwn.reset_layout">Log in</span>
+    </a>
+}

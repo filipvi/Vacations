@@ -1,0 +1,7 @@
+﻿@using Microsoft.Extensions.Options
+@using Vacations.Utilities.Settings
+@inject IOptions<AppSettings> AppSettings
+
+<div class="d-block text-center">
+    @DateTime.Now.Year © @AppSettings.Value.Application.Name by&nbsp;<a href="@AppSettings.Value.Company.Link" class="opacity-80 fw-500" title="@AppSettings.Value.Company.Name" target="_blank">@AppSettings.Value.Company.Name</a>
+</div>

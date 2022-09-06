@@ -1,0 +1,6 @@
+IndexRequestService = function () {
+
+  
+    return {
+    };
+}();

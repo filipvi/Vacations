@@ -1,0 +1,30 @@
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model string
+
+@{
+    ViewData["Title"] = "Employee not authorized";
+    ViewData["PageName"] = "home_notauthorizederror";
+    ViewData["Category1"] = "Login";
+    ViewData["Category1Href"] = "/identity/account/login";
+}
+
+<div class="col-xl-8 col-md-10 col-sm-12 ml-auto mr-auto">
+    <div class="card p-4 rounded-plus bg-faded text-center">
+
+        <h1 class="fw-900 fs-xxl text-danger">
+            LOGIN ERROR
+        </h1>
+
+        <hr class="dividerHr w-50 mb-5 ml-auto mr-auto" />
+
+        <h3 class="fw-700">
+            Employee <span class="fw-900 text-danger">@Model</span> doesn't have any user role.
+        </h3>
+        <hr class="dividerHr w-75 mb-4 ml-auto mr-auto" />
+        <h4 class="">
+            You can contact application administrator or go to public part of application
+            <br/>
+        </h4>
+        <partial name="_NotAuthorizedErrorButtonsTemplate" />
+    </div>
+</div>

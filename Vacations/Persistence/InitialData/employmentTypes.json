@@ -1,0 +1,27 @@
+[
+  {
+    "Name": "Regular employee",
+    "Description": "Regular employee working full time",
+    "NumberOfVacationDays": 21
+  },
+  {
+    "Name": "Regular employee plus 10 years",
+    "Description": "Regular employee working full time for 10 or more years",
+    "NumberOfVacationDays": 25
+  },
+  {
+    "Name": "Student full time",
+    "Description": "Student full time",
+    "NumberOfVacationDays": 15
+  },
+  {
+    "Name": "Student part time",
+    "Description": "Student part time",
+    "NumberOfVacationDays": 10
+  },
+  {
+    "Name": "Probation period employee",
+    "Description": "Probation employee",
+    "NumberOfVacationDays": 0
+  }
+]

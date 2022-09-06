@@ -1,0 +1,16 @@
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    var pageName = ViewBag.PageName ?? string.Empty;
+    var canLogin = new string[] { "register", "forgotpassword", "lockout", "logout" }.ToList().Contains(pageName);
+}
+<div class="height-10 w-100 px-4 bg-brand-gradient">
+    <div class="d-flex align-items-center container p-0">
+        <partial name="_Logo" />
+        @if (canLogin)
+        {
+            <a class="btn-link text-white ml-3 hidden-sm-down ml-auto" asp-area="Identity" asp-page="/account/login">
+                <span class="far fa-sign-in mr-2"></span>Login
+            </a>
+        }
+    </div>
+</div>

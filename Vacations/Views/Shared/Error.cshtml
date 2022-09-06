@@ -1,0 +1,42 @@
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@inject IOptions<AppSettings> AppSettings;
+@model ErrorViewModel
+@{
+    ViewData["Title"] = "Error";
+    var userExists = !string.IsNullOrWhiteSpace(@Model.UserName) ? "" : "d-none";
+    var urlExists = !string.IsNullOrWhiteSpace(@Model.Url) ? "" : "d-none";
+}
+
+
+<div class="col-xl-6 col-md-8 col-sm-12 ml-auto mr-auto">
+    <div class="card rounded-plus bg-faded text-center p-2">
+        <h1 class="fs-xxl fw-900 text-uppercase text-danger mt-5"><span class="far fa-exclamation-triangle mr-4 fw-900"></span>Error</h1>
+        <hr/>
+        <h5 class="fw-900">
+            Error occured while processing your request! <br>
+            Diagnostic data shown below
+        </h5>
+        
+        <div class="d-flex align-items-start flex-column m-auto">
+            <div class="mb-auto p-1 text-primary fw-900 @userExists">
+                <i class="far fa-user mr-2 fw-500"></i><strong class="mr-3 text-dark">User name:</strong> @Model.UserName
+            </div>
+            <div class="mb-auto p-1 text-primary fw-900 @urlExists">
+                <i class="far fa-server mr-2 fw-500"></i><strong class="mr-3 text-dark">Requested URL:</strong> @Model.Url
+            </div>
+            <div class="mb-auto p-1 text-primary fw-900">
+                <i class="far fa-question mr-2 fw-500"></i><strong class="mr-3 text-dark">Info:</strong> @Model.Message
+            </div>
+        </div>
+
+        <div class="row p-3">
+            <div class="col-xl-6 col-md-12 col-sm-12 mt-2">
+                <a asp-controller="Home" asp-action="LandPage" class="btn btn-primary btn-block waves-effect waves-themed mr-2"><i class="far fa-home mr-2"></i>Home page</a>
+            </div>
+            <div class="col-xl-6 col-md-12 col-sm-12 mt-2">
+                <a title="@AppSettings.Value.Author.Email" href="mailto:@AppSettings.Value.Author.Email?subject=Error Vacations" class="btn btn-warning btn-block waves-effect waves-themed"><i class="far fa-envelope mr-2"></i>Contact support</a>
+            </div>
+        </div>
+
+    </div>
+</div>

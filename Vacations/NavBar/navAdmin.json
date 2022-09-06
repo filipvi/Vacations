@@ -1,0 +1,58 @@
+﻿{
+  "version": "4",
+  "lists": [
+    {
+      "title": "VACATION REQUESTS"
+    },
+    {
+      "title": "Employees vacation requests",
+      "icon": "far fa-list text-white",
+      "items": [
+        {
+          "title": "Pending",
+          "showOnSeed": true,
+          "href": "request_pending.html"
+        },
+        {
+          "title": "Approved",
+          "showOnSeed": true,
+          "href": "request_approved.html"
+        },
+        {
+          "title": "Rejected",
+          "showOnSeed": true,
+          "href": "request_rejected.html"
+        },
+        {
+          "title": "Invalid",
+          "showOnSeed": true,
+          "href": "request_invalid.html"
+        }
+      ]
+    },
+    {
+      "title": "MANAGEMENT"
+    },
+    {
+      "title": "Domain data",
+      "icon": "far fa-home text-white",
+      "items": [
+        {
+          "title": "Companies",
+          "showOnSeed": true,
+          "href": "domain_companies.html"
+        },
+        {
+          "title": "Departments",
+          "showOnSeed": true,
+          "href": "domain_departments.html"
+        },
+        {
+          "title": "Employees",
+          "showOnSeed": true,
+          "href": "domain_employees.html"
+        }
+      ]
+    }
+  ]
+}

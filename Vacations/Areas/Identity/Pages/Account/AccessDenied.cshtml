@@ -1,0 +1,24 @@
+﻿@page
+@model AccessDeniedModel
+@{
+    ViewData["Title"] = "Access denied";
+}
+
+<div class="row">
+    <div class="col-xl-12 p-2">
+        <h1 class="text-danger fw-900">
+            @ViewData["Title"]
+        </h1>
+        <p class="text-danger fw-900">You do not have access to this resource.</p>
+                    <hr class="dividerHr"/>
+
+    </div>
+    <div class="col-xl-12 ml-auto p-2">
+        <a asp-controller="Home" asp-action="LandPage" class="btn btn-secondary waves-effect waves-themed">
+            <span class="far fa-home mr-2"></span>Home page
+        </a>
+        <a asp-area="Identity" asp-page="/Account/Login" class="btn btn-warning waves-effect waves-themed">
+            <span class="far fa-sign-in mr-2"></span>Login
+        </a>
+    </div>
+</div>

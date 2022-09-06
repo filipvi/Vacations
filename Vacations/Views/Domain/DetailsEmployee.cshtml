@@ -1,0 +1,99 @@
+﻿@model Vacations.Models.ViewModels.Domain.DetailsEmployeeViewModel
+
+@{
+    ViewBag.Title = "Employee details";
+    ViewData["Category1"] = "Employees";
+    ViewData["Category1Href"] = "/domain/employees/";
+    ViewData["PageName"] = "domain_detailsEmployee";
+}
+
+
+<div class="subheader">
+    <h1 class="subheader-title text-dark fw-700">
+        <i class="subheader-icon far fa-info-circle text-dark"></i> Employee details
+    </h1>
+</div>
+
+<div class="row">
+    <div class="col-xl-12 col-md-12 col-sm-12">
+        <div class="panel">
+            <div class="panel-hdr bg-primary-700 text-white">
+                <h2>
+                    <i class="far fa-info-circle mr-2 mb-1"></i> Basic data<span class="fw-400"></span>
+                </h2>
+                <div class="panel-toolbar">
+                    <button type="button" class="btn btn-panel btn-info waves-effect waves-themed" data-container="body" data-toggle="popover" data-placement="auto" data-content="" data-original-title="" title="">
+                        <i class="far fa-question"></i>
+                    </button>
+                    <button class="btn btn-panel waves-effect waves-themed" data-action="panel-collapse" data-offset="0,10" data-original-title="Proširi/Smanji">
+                        <i class="far fa-angle-double-up"></i>
+                    </button>
+                    <button class="btn btn-panel waves-effect waves-themed" data-action="panel-fullscreen" data-toggle="tooltip" data-offset="0,10" data-original-title="Cijeli ekran">
+                        <i class="far fa-arrows"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="panel-container collapse show">
+                <div class="panel-content">
+                    <fieldset disabled>
+                        <div class="row">
+                            <div class="col-xl-3 col-md-6 col-sm-12">
+                                <div class="form-group">
+                                    <label asp-for="Company" class="form-label"></label>
+                                    <input type="text" asp-for="Company" class="form-control"/>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6 col-sm-12">
+                                <div class="form-group">
+                                    <label asp-for="Department" class="form-label"></label>
+                                    <input type="text" asp-for="Department" class="form-control"/>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6 col-sm-12">
+                                <div class="form-group">
+                                    <label asp-for="FullName" class="form-label"></label>
+                                    <input type="text" asp-for="FullName" class="form-control"/>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6 col-sm-12">
+                                <div class="form-group">
+                                    <label asp-for="Email" class="form-label"></label>
+                                    <input type="text" asp-for="Email" class="form-control"/>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6 col-sm-12">
+                                <div class="form-group">
+                                    <label asp-for="PhoneNumber" class="form-label"></label>
+                                    <input type="text" asp-for="PhoneNumber" class="form-control"/>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6 col-sm-12">
+                                <div class="form-group">
+                                    <label asp-for="NumberOfVacationDaysPerYear" class="form-label"></label>
+                                    <input type="text" asp-for="NumberOfVacationDaysPerYear" class="form-control"/>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <partial name="_DetailsEmployeeButtonsTemplate"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts
+{
+
+    <script>
+
+    $(document).ready(function () {
+
+       
+    });
+
+</script>
+
+
+}

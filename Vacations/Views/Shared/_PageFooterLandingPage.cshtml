@@ -1,0 +1,5 @@
+﻿@inject IOptions<AppSettings> AppSettings
+
+<div class="d-block text-center text-dark">
+    @DateTime.Now.Year  © @AppSettings.Value.Application.Name by&nbsp;<a href="@AppSettings.Value.Company.Link" class="opacity-40 fw-500" title="@AppSettings.Value.Company.Name" target="_blank">@AppSettings.Value.Company.Name</a>
+</div>

@@ -1,0 +1,18 @@
+[
+  {
+    "Name": "Pending",
+    "Description": "Request created and waiting for response"
+  },
+  {
+    "Name": "Approved",
+    "Description": "Request approved"
+  },
+  {
+    "Name": "Rejected",
+    "Description": "Request rejected"
+  },
+  {
+    "Name": "Invalid",
+    "Description": "Request data not entered correctly"
+  }
+]

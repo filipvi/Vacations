@@ -1,0 +1,75 @@
+﻿@model Vacations.Models.ViewModels.Domain.EditCompanyViewModel
+
+@{
+    ViewData["Title"] = "Edit company";
+    ViewData["PageName"] = "domain_editCompany";
+    ViewData["Category1"] = "Domain";
+}
+
+@*Header*@
+<div class="subheader">
+    <h1 class="subheader-title text-dark fw-700">
+        <i class="subheader-icon far fa-plus-circle text-dark"></i> Edit company
+    </h1>
+</div>
+
+<form asp-controller="Domain" asp-action="EditCompany" method="post" id="formEditCompany">
+    <div class="row">
+        <div class="col-xl-12 col-md-12 col-sm-12">
+            <div class="panel">
+                 <div class="panel-hdr bg-primary-700 text-white">
+                    <h2>
+                        <i class="far fa-pen mr-2 mb-1"></i> Enter data<span class="fw-400"></span>
+                    </h2>
+                    <div class="panel-toolbar">
+                        <button type="button" class="btn btn-panel btn-info waves-effect waves-themed" data-container="body" data-toggle="popover" data-placement="auto" data-content="" data-original-title="" title="">
+                            <i class="far fa-question"></i>
+                        </button>
+                        <button class="btn btn-panel waves-effect waves-themed" data-action="panel-collapse" data-offset="0,10" data-original-title="Proširi/Smanji">
+                            <i class="far fa-angle-double-up"></i>
+                        </button>
+                        <button class="btn btn-panel waves-effect waves-themed" data-action="panel-fullscreen" data-toggle="tooltip" data-offset="0,10" data-original-title="Cijeli ekran">
+                            <i class="far fa-arrows"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="panel-container collapse show">
+                    <div class="panel-content">
+                        <div class="row">
+                            <div class="col-xl-6 col-md-6 col-sm-12">
+                                <div class="form-group">
+                                    <label asp-for="Name" class="form-label"></label>
+                                    <input asp-for="Name" type="text" class="form-control">
+                                    <span asp-validation-for="Name" class="customValidationError"></span>
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-md-6 col-sm-12">
+                                <div class="form-group">
+                                    <label asp-for="Description" class="form-label"></label>
+                                    <input asp-for="Description" type="text" class="form-control">
+                                    <span asp-validation-for="Description" class="customValidationError"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <partial name="_EditCompanyButtonsTemplate" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts
+{
+<script src="/lib/jquery-validation/dist/jquery.validate.js"></script>
+<script src="/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+
+<script>
+
+    $(document).ready(function () {
+        
+        markInputsRequired();
+    });
+
+</script>
+}

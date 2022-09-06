@@ -1,0 +1,27 @@
+﻿@inject IOptions<AppSettings> _appSettings
+
+@{
+    ViewData["Title"] = "Home page";
+    ViewData["PageName"] = "home_landPage";
+    ViewData["Category1"] = "Home page";
+}
+
+<div class="col-sm-12 col-md-10 col-lg-8 col-xl-8 m-auto">
+    <div class="card p-4 rounded-plus bg-faded text-center">
+        <h1 class="fw-900 fs-xxl text-uppercase text-success p-2">@_appSettings.Value.Application.Name</h1>
+        <h5 class="fw-700">
+            Welcome to @_appSettings.Value.Application.Name
+        </h5>
+        <hr>
+        <h5 class="fw-700 col-xl-8 m-auto text-primary">
+            web app for managing company, departments, employees and vacation requests inside organization <br/>
+            On button below you can login into web app <br/>
+        </h5>
+        <br>
+        <div class="fw-900 text-danger">
+            <a asp-area="Identity" asp-page="/Account/Login" class="btn btn-primary waves-effect waves-themed">
+                <span class="far fa-sign-in mr-2"></span>Login
+            </a>
+        </div>
+    </div>
+</div>

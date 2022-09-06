@@ -1,0 +1,196 @@
+﻿@model Vacations.Models.ViewModels.Request.CreateVacationRequestViewModel
+
+@{
+    ViewBag.Title = "New vacation request";
+    ViewData["Category1"] = "Requests";
+    ViewData["Category1Href"] = "/request/pending";
+    ViewData["PageName"] = "request_create";
+
+    var currentYear = DateTime.Now.Year;
+}
+
+
+@section Header
+{
+    <link href="~/css/formplugins/bootstrap-datepicker/bootstrap-datepicker.css" rel="stylesheet"/>
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="panel">
+            <div class="panel-hdr bg-primary-700 text-white">
+                <h2>
+                    <i class="far fa-calendar-plus mr-2"></i> New vacation request
+                </h2>
+                <div class="panel-toolbar d-none d-md-block d-lg-none d-md-block d-lg-none d-lg-block d-xl-none d-xl-block">
+                    <button class="btn btn-panel waves-effect waves-themed" data-action="panel-collapse" data-toggle="tooltip" data-offset="0,10" data-original-title="Proširi/Smanji">
+                        <i class="far fa-angle-double-up"></i>
+                    </button>
+                    <button class="btn btn-panel waves-effect waves-themed" data-action="panel-fullscreen" data-toggle="tooltip" data-offset="0,10" data-original-title="Cijeli ekran">
+                        <i class="far fa-arrows"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="panel-container show">
+                <form asp-controller="Request" asp-action="Create" method="post" id="formCreateVacationRequest">
+
+                    <input type="hidden" asp-for="EmployeeId">
+
+                    <div class="panel-content">
+                        <div class="row">
+                            <div class="col-xl-4 col-md-4 col-sm-6">
+                                <div class="panelTagCustom">
+                                    Remaining days in current year (@currentYear): <h4 class="text-danger fw-900" id="remainingDaysCurrentYearInfo">@Model.RemainingNumberOfVacationCurrentYear</h4>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            
+                            <div class="col-xl-3 col-md-6 col-sm-12">
+                                <div class="form-group">
+                                    <label class="form-label" asp-for="StartDate"></label>
+                                    <input type="text" asp-for="StartDate" class="form-control datePicker w-100" autocomplete="off" id="startDate">
+                                    <span asp-validation-for="StartDate" class="customValidationError"></span>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6 col-sm-12">
+                                <div class="form-group">
+                                    <label class="form-label" asp-for="EndDate"></label>
+                                    <input type="text" asp-for="EndDate" class="form-control datePicker w-100" autocomplete="off" id="endDate">
+                                    <span asp-validation-for="EndDate" class="customValidationError"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-xl-6 col-md-6 col-sm-12">
+                                <div class="form-group">
+                                    <label asp-for="ReplacementEmployeeIds" class="form-label"></label>
+                                    <select asp-for="ReplacementEmployeeIds" asp-items="@Model.ReplacementEmployeesSelectList" class="form-control js-ddlReplacementEmployees select2" multiple="multiple"></select>
+                                    <span asp-validation-for="ReplacementEmployeeIds" class="customValidationError"></span>
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-md-6 col-sm-12">
+                                <div class="form-group">
+                                    <label class="form-label" asp-for="Description"></label>
+                                    <textarea type="text" asp-for="Description" rows="3" style="resize: none;" class="form-control"></textarea>
+                                    <span asp-validation-for="Description" class="customValidationError"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <partial name="_CreateVacationRequestButtonsTemplate"/>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script src="~/js/formplugins/bootstrap-datepicker/bootstrap-datepicker.js"></script>
+    <script src="~/js/formplugins/bootstrap-datepicker/locales/bootstrap-datepicker.hr.js"></script>
+    <script src="/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+
+    <script>
+
+
+    $(document).ready(function() {
+
+        var startDate;
+        var endDate;
+        var remainingDaysSum = @Html.Raw(Json.Serialize(Model.RemainingNumberOfVacationCurrentYear));
+        
+        markInputsRequired();
+        
+        $('.select2').select2();
+                
+
+        $('#startDate').datepicker({
+            format: 'dd.mm.yyyy',
+            autoclose: true,
+            clearBtn: true,
+            showClear: true,
+            orientation: 'auto',
+            todayHighlight: true
+        });
+
+        $('#endDate').datepicker({
+                    format: 'dd.mm.yyyy',
+                    autoclose: true,
+                    clearBtn: true,
+                    showClear: true,
+                    orientation: 'auto',
+                    todayHighlight: true
+                });
+        // START DATE
+        if (remainingDaysSum > 0){
+              var currentDate = new Date();
+                    var now = new Date();
+                    var currentDateFormatted = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate() + 1).toLocaleDateString("hr-HR");
+                    var max = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate());
+
+                    // var maxDate = currentDate.setDate(currentDate.getDate() + remainingDaysSum);
+                    // var maxDateFormatted = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate()).toLocaleDateString("hr-HR");
+                    // var max = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate());
+
+                    $('#startDate').datepicker({
+                        format: 'dd.mm.yyyy',
+                        autoclose: true,
+                        clearBtn: true,
+                        showClear: true,
+                        orientation: 'auto',
+                        todayHighlight: true,
+                        startDate: currentDateFormatted,
+                        beforeShowDay: function (date) {
+                            dmy = date.getDate() + "." + ( '0' + (date.getMonth()+1) ).slice( -2 ) + "." + date.getFullYear();
+
+                            if (date > now && date <= max) {
+                                return { classes: 'highlightedAvailableDays' };
+                            } else {
+                                return { tooltip: 'There is no available dates'};
+
+                            }
+                        }
+                    });
+            }
+
+
+       var initializeEndDatePicker = function (startDateFormatted, maxDateFormatted) {
+
+              $('#endDate').datepicker({
+                  format: 'dd.mm.yyyy',
+                  autoclose: true,
+                  clearBtn: true,
+                  showClear: true,
+                  orientation: 'auto',
+                  todayHighlight: true,
+                  startDate: startDateFormatted,
+                  endDate: maxDateFormatted
+              });         
+          };
+
+        $('#startDate').on('change',
+            function () {
+                startDate = $(this).val().split(".");
+                startDate = new Date(startDate[2], startDate[1] - 1, startDate[0])
+                var startDateFormatted = new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate()).toLocaleDateString("hr-HR");
+                var maxDate = startDate.setDate(startDate.getDate() + remainingDaysSum);
+                var maxDateFormatted = new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate()).toLocaleDateString("hr-HR");
+
+                $('#endDate').datepicker('destroy');
+                $('#endDate').val('');
+
+               initializeEndDatePicker(startDateFormatted, maxDateFormatted);
+            }
+        );
+
+        $('#endDate').on('change',
+        function () {
+            endDate = $(this).val();
+            startDate = $('#startDate').val();
+        });        
+    });
+
+</script>
+}

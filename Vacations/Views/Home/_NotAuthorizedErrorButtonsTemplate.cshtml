@@ -1,0 +1,40 @@
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@*Laptop*@
+<div class="row d-none d-md-block d-lg-none d-md-block d-lg-none d-lg-block d-xl-none d-xl-block">
+    <div class="d-flex mt-3">
+        <div class="col-12">
+            <a asp-controller="Home" asp-action="LandPage"
+               class="btn btn-secondary waves-effect waves-themed ml-auto mr-2">
+                <i class="far fa-home mr-2"></i>Home page
+            </a>
+        </div>
+    </div>
+</div>
+
+
+@*Tablet*@
+<div class="d-none d-sm-block d-md-none">
+
+    <div class="row">
+        <div class="col-6">
+            <a asp-controller="Home" asp-action="LandPage"
+               class="btn btn-secondary waves-effect waves-themed mr-5 btn-block">
+                <i class="far fa-home mr-2"></i>Home page
+            </a>
+        </div>
+    </div>
+</div>
+
+@*Mobile*@
+<div class="row d-block d-sm-none">
+    <div class="col-lg-12">
+        <div class="frame-wrap justify-content-center">
+            <a asp-controller="Home" asp-action="LandPage"
+               class="btn btn-secondary waves-effect waves-themed mr-5 btn-block">
+                <i class="far fa-home mr-2"></i>Home page
+            </a>
+        </div>
+    </div>
+</div>
+
+

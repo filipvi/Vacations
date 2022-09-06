@@ -1,0 +1,24 @@
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Greška";
+}
+
+<div class="col-xl-6 col-md-8 col-sm-12 m-auto">
+    <div class="card p-4 rounded-plus bg-faded text-center">
+        <h1 class="fs-xxl fw-900 text-uppercase text-danger p-4"><span class="far fa-exclamation-triangle mr-2 fw-900"></span>POGREŠKA</h1>
+        <h5 class="fw-900">
+            Molimo Vas detaljno opišite grešku na linku ispod. <br/>
+            Nakon prijave greške, potruditi ćemo se ispraviti je što prije.
+        </h5>
+        <h5 class="fw-500">
+            <div class="row pt-4">
+                <div class="col-xl-6 col-md-12 col-sm-12 mt-2">
+                    <a asp-controller="Home" asp-action="LandPage" class="btn btn-primary btn-block waves-effect waves-themed mr-2"><i class="far fa-home mr-2"></i>Početna stranica</a>
+                </div>
+                <div class="col-xl-6 col-md-12 col-sm-12 mt-2">
+                    <a title="aplikacije@hdit.hr" href="mailto:aplikacije@hdit.hr?subject=Greška Vacations" class="btn btn-warning btn-block opacity-80 waves-effect waves-themed"><i class="far fa-envelope mr-2"></i>Kontaktiraj podršku</a>
+                </div>
+            </div>
+        </h5>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model ErrorViewModel
+
+
+@{
+    ViewData["Title"] = "Greška";
+}
+
+<h1 class="text-danger fw-700">Pogreška</h1>
+<h4 class="text-danger">@Model.Message</h4>
+
+
+<div class="ml-2">
+    <hr class="dividerHr" />
+    <h5 class="mt-1 text-black-50"> <i class="far fa-user mr-3"></i><strong class="mr-3 text-dark">Korisnik:</strong> @Model.UserName</h5>
+    <h5 class="mt-1 text-black-50"> <i class="far fa-server mr-3"></i><strong class="mr-3 text-dark">Zatraženi URL:</strong> @Model.Url</h5>
+    <h5 class="mt-1 text-black-50"> <i class="far fa-envelope mr-3"></i><strong class="mr-3 text-dark">Info:</strong> @Model.Message</h5>
+    <br />
+    <br />
+    <a asp-controller="Home" asp-action="SignedIn" class="btn btn-primary waves-effect waves-themed mr-2"><i class="far fa-home mr-2"></i>Početna stranica</a>
+    <a title="aplikacije@hdit.hr" href="mailto:aplikacije@hdit.hr?subject=Greška Vacations" class="btn btn-default waves-effect waves-themed"><i class="far fa-envelope mr-2"></i>Kontaktiraj podršku</a>
+</div>

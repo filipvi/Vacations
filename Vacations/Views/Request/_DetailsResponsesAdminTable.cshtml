@@ -1,0 +1,23 @@
+﻿@model Vacations.Models.ViewModels.Request.DetailsVacationRequestAdminViewModel
+
+<table class="table table-sm table-hover table-bordered table-striped dataTable w-100 display" id="dtResponses">
+    <thead class="bg-secondary">
+    <tr>
+        <th class="no-sort">Status</th>
+        <th class="no-sort">Employee</th>
+        <th class="no-sort">Date created</th>
+        <th class="no-sort">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model.Responses)
+    {
+        <tr>
+            <td>@item.StatusId</td>
+            <td>@item.Employee</td>
+            <td>@item.DateCreated</td>
+            <td>@item.Description</td>
+        </tr>
+    }
+    </tbody>
+</table>

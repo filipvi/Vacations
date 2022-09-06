@@ -1,0 +1,60 @@
+﻿@model Vacations.Models.ViewModels.Request.NoAvailableDaysViewModel
+
+@{
+    ViewBag.Title = "No available days";
+    ViewData["Category1"] = "My requests";
+    ViewData["Category1Href"] = "/request/myVacationRequests";
+    ViewData["PageName"] = "request_noAvailableDays";
+
+}
+
+<div class="col-sm-12 col-md-10 col-lg-6 col-xl-8 m-auto">
+    <div class="card p-4 rounded-plus bg-faded text-center">
+        <span style="font-size: 5em;" class="text-danger">
+            <i class="far fa-exclamation-triangle mr-2"></i>
+        </span>
+        <h5 class="card-title fw-900 fs-xxl text-danger">You don't have more vacation days in current year</h5>
+        <h4 class="fw-900 fs-xl">@Model.Message</h4>
+        <div class="row my-4">
+            <div class="col-xl-6 col-md-6 col-sm-12">
+                <div class="p-2 bg-primary-700 rounded overflow-hidden position-relative text-white mb-g">
+                    <div class="">
+                        <h3 class="display-4 d-block l-h-n m-0 fw-500">
+                            @Model.AvailableDaysCurrentYear
+                            <small class="m-0 l-h-n">available vacation days</small>
+                        </h3>
+                    </div>
+                    <i class="fal fa-user position-absolute pos-right pos-bottom opacity-15 mb-n1 mr-n1" style="font-size:6rem"></i>
+                </div>
+            </div>
+            <div class="col-xl-6 col-md-6 col-sm-12">
+                <div class="p-2 bg-primary-700 rounded overflow-hidden position-relative text-white mb-g">
+                    <div class="">
+                        <h3 class="display-4 d-block l-h-n m-0 fw-500">
+                            @Model.UsedDaysCurrentYear
+                            <small class="m-0 l-h-n">used vacation days</small>
+                        </h3>
+                    </div>
+                    <i class="fal fa-gem position-absolute pos-right pos-bottom opacity-15  mb-n1 mr-n4" style="font-size: 6rem;"></i>
+                </div>
+            </div>
+        </div>
+        <a asp-controller="Request" asp-action="MyVacationRequests" class="btn btn-success btn-lg bg-success-gradient waves-effect waves-themed p-2 mt-2">
+            <span class="far fa-list-alt mr-2"></span>View my vacation requests
+        </a>
+    </div>
+</div>
+
+
+@section Scripts
+{
+
+    <script>
+
+$(document).ready(function () {
+
+    });
+
+    </script>
+
+}

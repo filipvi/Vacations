@@ -1,0 +1,23 @@
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using Vacations.ViewComponents
+ <aside class="page-sidebar">
+        @*Logo i naslov*@
+        <partial name="_Logo"/>
+
+        <nav id="js-primary-nav" class="primary-nav nav-function-fixed" role="navigation">
+            
+            <partial name="_NavFilter"/>
+            
+            @*Cover img*@
+            <partial name="_NavInfoCard"/>
+
+            <vc:navigation/>
+
+            <partial name="_NavFilterMsg"/>
+           
+        </nav>
+        
+        @*Kontakti*@
+        <partial name="_NavFooter"/>
+    
+    </aside>

@@ -1,0 +1,24 @@
+﻿@page
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model ConfirmEmailModel
+@{
+    ViewData["Title"] = "Potvrda email adrese";
+    ViewData["PageName"] = "confirm_email";
+}
+
+@section PageHeading {
+    <div class="col col-md-6 col-lg-7 hidden-sm-down">
+        <h2 class="fs-xxl fw-500 text-white">
+            @ViewData["Title"]
+            <small class="h3 fw-300 mt-3 mb-5 text-white opacity-60">
+                Hvala Vam što ste potvrdili email adresu.
+            </small>
+        </h2>
+        
+        <a class="btn-link text-white ml-auto ml-sm-0" asp-action="SignedIn" asp-controller="Home">
+            Početna stranica
+        </a>
+    </div>
+}
+
+

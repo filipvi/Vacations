@@ -1,0 +1,15 @@
+﻿add-migration TestName -Context ApplicationDbContext -OutputDir ".\Persistence\Migrations\"
+CMD: dotnet ef  migrations add TestName -c ApplicationDbContext -p Vacations -o Persistence\Migrations
+
+Update database:
+update-database -Context ApplicationDbContext
+CMD: dotnet ef database update -c ApplicationDbContext Needed to be inside app folder
+
+// REMOVING MIGRATION
+1. update-database -Migration UpdateSoilSamplingRequisitionAndSoilSamplesTable -Context ApplicationDbContext
+2. remove-migration -Context ApplicationDbContext
+CMD: dotnet ef migrations remove -p Vacations -c ApplicationDbContext
+
+// ROLL-BACK ALL MIGRATIONS
+1. update-database -Context ApplicationDbContext -Migration:0
+2. remove-migration -Context ApplicationDbContext

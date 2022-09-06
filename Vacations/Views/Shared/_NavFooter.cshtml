@@ -1,0 +1,29 @@
+﻿@inject IOptions<Contacts> _appContacts
+
+
+<div class="nav-footer mb-4">
+
+    <a href="#" data-action="toggle" data-class="nav-function-minify" class="hidden-md-down">
+        <i class="ni ni-chevron-right"></i>
+        <i class="ni ni-chevron-right"></i>
+    </a>
+
+    <ul class="list-table m-auto nav-footer-buttons">
+
+        <li>
+            <a class="text-white" href="#" data-placement="bottom" data-toggle="popover" data-trigger="focus" data-content="E-mail: <a href='mailto:@_appContacts.Value.Email'>info@info.com</a>" data-html="true" data-original-title="Email">
+                <i class="far fa-envelope"></i>
+            </a>
+        </li>
+        <li>
+            <a class="text-white" href="#" data-placement="bottom" data-toggle="popover" data-trigger="focus" data-content="Tel: <a href='#'>@_appContacts.Value.Phone</a> <br />  Fax: <a href='#'>@_appContacts.Value.Phone2</a>" data-html="true" data-original-title="Phone">
+                <i class="far fa-phone"></i>
+            </a>
+        </li>
+        <li>
+            <a class="text-white" href="#" data-placement="bottom" data-toggle="popover" data-trigger="focus" data-content="Web adresa centra: <a target='_blank' href='@_appContacts.Value.WebSite'></a>" data-html="true" data-original-title="Site">
+                <i class="far fa-globe"></i>
+            </a>
+        </li>
+    </ul>
+</div>

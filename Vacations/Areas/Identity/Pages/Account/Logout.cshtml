@@ -1,0 +1,33 @@
+﻿@page
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model LogoutModel
+@{
+    ViewData["Title"] = "Logout";
+    ViewData["PageName"] = "logout";
+}
+
+@section PageHeading {
+    <div class="col-sm-12 col-md-8 col-lg-8 col-xl-8 ml-auto mr-auto">
+        <div class="card p-4 rounded-plus bg-faded text-center">
+            <span style="font-size: 5em;" class="text-success">
+                <i class="far fa-check mr-2"></i>
+            </span>
+            <h2 class="fs-xxl fw-500 p-2">
+                Logout successful
+            </h2>
+            <h5 class="fw-500 font-italic">
+                For your security, please close browser!
+            </h5>
+            <div class="d-flex justify-content-center m-2">
+                <div class="p-2">
+                    <a asp-controller="Home" asp-action="LandPage" class="btn btn-primary btn-block"><i class="far fa-home mr-2"></i>Home page</a>
+                </div>
+                <div class="p-2">
+                    <a class="btn btn-success bg-success-gradient waves-effect waves-themed btn-block" href="/identity/account/login" class="dropdown-item">
+                        <span class="far fa-user mr-2"></span><span data-i18n="drpdwn.reset_layout">Login</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+}

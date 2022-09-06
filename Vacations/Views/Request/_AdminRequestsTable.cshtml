@@ -1,0 +1,57 @@
+﻿@model Vacations.Models.ViewModels.Request.IndexVacationRequestAdminViewModel
+
+@*Datatable*@
+<div class="row">
+    <div class="col-xl-12">
+
+        @*Panel*@
+        <div class="panel">
+
+            @*Panel header*@
+            <div class="panel-hdr bg-primary-700 text-white">
+                <h2>
+                    <span class="far fa-list-ul mr-2"></span>
+                    Requests
+                </h2>
+
+                <div class="panel-toolbar">
+                    <button class="btn btn-panel btn-info waves-effect waves-themed" data-container="body" data-toggle="popover" data-placement="auto" data-content="..." data-original-title="" title="">
+                        <i class="fas fa-question"></i>
+                    </button>
+                    <button class="btn btn-panel waves-effect waves-themed" data-action="panel-collapse" data-toggle="tooltip" data-offset="0,10" data-original-title="Proširi/Smanji">
+                        <i class="far fa-angle-double-up"></i>
+                    </button>
+                    <button class="btn btn-panel waves-effect waves-themed" data-action="panel-fullscreen" data-toggle="tooltip" data-offset="0,10" data-original-title="Cijeli ekran">
+                        <i class="far fa-arrows"></i>
+                    </button>
+                </div>
+            </div>
+
+            @*Content*@
+            <div class="panel-container show">
+                <div class="panel-content">
+
+                    <table class="table table-hover table-bordered table-striped dataTable w-100 display" id="dtRequests">
+                        <thead class="bg-gray-300 text-dark">
+                        <tr>
+                            <th>Employee</th>
+                            <th>Company</th>
+                            <th>Department</th>
+                            <th>Date created</th>
+                            <th>Starting date</th>
+                            <th>Ending date</th>
+                            <th>Year</th>
+                            <th>Duration in working days</th>
+                            <th>Duration in days</th>
+                            <th class="no-sort">Details</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

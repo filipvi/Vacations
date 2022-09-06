@@ -1,0 +1,240 @@
+﻿@using Vacations.Models.Enums
+@model Vacations.Models.ViewModels.Request.IndexVacationRequestViewModel
+
+@{
+    ViewData["Title"] = "My vacation requests";
+    ViewData["PageName"] = "request_myVacationRequests";
+    ViewData["Category1"] = "Vacation requests";
+}
+
+@section Header
+{
+    <link href="~/css/datatables/datatables.bundle.css" rel="stylesheet"/>
+    <link href="~/css/formplugins/bootstrap-datepicker/bootstrap-datepicker.css" rel="stylesheet"/>
+}
+
+<div class="subheader">
+    <h1 class="subheader-title text-dark fw-700">
+        <i class="subheader-icon far fa-list text-dark"></i> Vacation requests
+    </h1>
+</div>
+
+<div class="row">
+    <div class="col-xl-12">
+        <div class="panel panel-collapsed">
+            <div class="panel-hdr bg-primary-700">
+                <h2>
+                    <span class="far fa-search mr-2"></span>
+                    Search
+                    <small>
+                        Enter/Choose search criteria
+                    </small>
+                </h2>
+                <div class="panel-toolbar">
+                    <button class="btn btn-panel btn-info waves-effect waves-themed" data-trigger="hover" data-container="body" data-toggle="popover" data-placement="auto" data-content="Initialy shown all requests. Search is automatic, enter/choose anything to start searching." data-original-title="" title="Search">
+                        <i class="far fa-question"></i>
+                    </button>
+                    <button class="btn btn-panel waves-effect waves-themed" data-action="panel-collapse" data-toggle="tooltip" data-offset="0,10" data-original-title="Proširi/Smanji">
+                        <i class="far fa-angle-double-up"></i>
+                    </button>
+                    <button class="btn btn-panel waves-effect waves-themed" data-action="panel-fullscreen" data-toggle="tooltip" data-offset="0,10" data-original-title="Cijeli ekran">
+                        <i class="far fa-arrows"></i>
+                    </button>
+                </div>
+            </div>
+            @*Content*@
+            <div class="panel-container collapse">
+                <div class="panel-content">
+                    <div class="row">
+                        <div class="col-xl-3 col-md-4 col-sm-6">
+                            <div class="form-group">
+                                <label asp-for="VacationRequestStatusId" class="form-label"></label>
+                                @Html.DropDownListFor(x => x.VacationRequestStatusId, Model.VacationRequestStatusSelectList, "...", new {@class = "select2 form-control js-status"})
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-md-4 col-sm-6">
+                            <div class="form-group">
+                                <label asp-for="DateCreated" class="form-label"></label>
+                                <input asp-for="DateCreated" type="text" class="form-control datepicker js-dateCreated w-100">
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-md-4 col-sm-6">
+                            <div class="form-group">
+                                <label asp-for="DateFrom" class="form-label"></label>
+                                <input asp-for="DateFrom" type="text" class="form-control datepicker js-dateFrom w-100">
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-md-4 col-sm-6">
+                            <div class="form-group">
+                                <label asp-for="DateTo" class="form-label"></label>
+                                <input asp-for="DateTo" type="text" class="form-control datepicker js-dateTo w-100">
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-md-4 col-sm-6">
+                            <div class="form-group">
+                                <label asp-for="YearId" class="form-label"></label>
+                                @Html.DropDownListFor(x => x.YearId, Model.VacationRequestYearSelectList, "...", new {@class = "select2 form-control js-ddlYear"})
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-md-4 col-sm-6">
+                            <div class="form-group">
+                                <label asp-for="DurationInDays" class="form-label"></label>
+                                <input asp-for="DurationInDays" type="text" class="form-control js-durationDays">
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-md-4 col-sm-6">
+                            <div class="form-group">
+                                <label asp-for="DurationInWorkingDays" class="form-label"></label>
+                                <input asp-for="DurationInWorkingDays" type="text" class="form-control js-durationWorkingDays">
+                            </div>
+                        </div>
+                    </div>
+                    <partial name="_DatatableSearchButtonsTemplate"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<partial name="_VacationRequestsTable"/>
+
+@section Scripts
+{
+    <script src="~/js/datatables/datatables.bundle.js"></script>
+    <script src="~/js/datatables/dataTables.buttons.min.js"></script>
+    <script src="~/js/formplugins/bootstrap-datepicker/bootstrap-datepicker.js"></script>
+
+    <script>
+
+        $(document).ready(function () {
+
+        var getDataUrl = '@Url.Action("GetRequestsData", "Request")';
+        var getRequestDetailsUrl = '@Url.Action("Details", "Request")';
+        var statusId = @Html.Raw(Json.Serialize(@Model.VacationRequestStatusId));
+
+        var statusEnumsInfo = {};
+        statusEnumsInfo.pending = @((int) VacationRequestStatusEnums.Pending);
+        statusEnumsInfo.approved = @((int) VacationRequestStatusEnums.Approved);
+        statusEnumsInfo.rejected = @((int) VacationRequestStatusEnums.Rejected);
+        statusEnumsInfo.invalid = @((int) VacationRequestStatusEnums.Invalid);
+        
+        $('.select2').select2();
+        
+        $('.datepicker').datepicker({
+            language: 'hr-HR',
+            format: 'dd.mm.yyyy',
+            autoclose: true,
+            clearBtn: true,
+            todayHighlight: true,
+            showClear: true,
+            orientation: 'bottom'
+        });
+                
+        $('#dtVacationRequests').DataTable({
+            'pagingType': 'numbers',
+            'processing': true,
+            'serverSide': true,
+            responsive: true,
+            order: [[2, "desc"]],
+            lengthMenu: [10, 25, 50],
+            'ajax':
+            {
+                'url': getDataUrl,
+                'data': { 'statusId': statusId },
+                'type': 'POST',
+                'dataType': 'JSON'
+            },
+            'columns': [
+                {
+                    data: 'statusId',
+                    render: function (data, type, request) {
+                        if (request.statusId === statusEnumsInfo.pending) {
+                            return "<span class='badge badge-secondary'>Pending</span>";
+                        } else if (request.statusId === statusEnumsInfo.approved) {
+                            return "<span class='badge badge-success'>Approved</span>";
+                        } else if (request.statusId === statusEnumsInfo.rejected) {
+                            return "<span class='badge badge-warning'>Rejected</span>";
+                        } else if (request.statusId === statusEnumsInfo.invalid) {
+                            return "<span class='badge badge-danger'>Invalid</span>";
+                        }
+                        return "";
+                    }
+                },
+                { data: 'dateCreated' },
+                { data: 'dateFrom' },
+                { data: 'dateTo' },
+                { data: 'year' },
+                { data: 'durationInWorkingDays' },
+                { data: 'durationInDays' },
+                { data: 'id' }                          
+            ],
+            'columnDefs': [
+                { className: 'dt-center', targets: "_all" },
+                { orderable: false, targets: "no-sort" },
+                {
+                    'render': function (data, type, row, full) {
+                        return dataRenderSamePage(getRequestDetailsUrl, data, 'Request details', 'btn-primary', 'fa-info-circle text-white');
+                    },
+                    'targets': 7
+                },
+                { responsivePriority: 1, targets: 0 },
+                { responsivePriority: 2, targets: -1 }
+            ]
+             });
+            
+            $('.js-ddlStatus').on('change', function () {
+                var val = $(this).val();
+    
+                if ($('#dtVacationRequests').column(0).search() !== val) {
+                    $('#dtVacationRequests').column(0).search(val).draw();
+                }
+            });
+                            
+            $('.js-dateCreated').on('change', function () {
+                var val = $(this).val();
+    
+                if ($('#dtVacationRequests').column(1).search() !== val) {
+                    $('#dtVacationRequests').column(1).search(val).draw();
+                }
+            });
+    
+            $('.js-dateFrom').on('change', function () {
+               var val = $(this).val();
+    
+               if ($('#dtVacationRequests').column(2).search() !== val) {
+                   $('#dtVacationRequests').column(2).search(val).draw();
+               }
+           });
+    
+            $('.js-dateTo').on('change', function () {
+                var val = $(this).val();
+    
+                if ($('#dtVacationRequests').column(3).search() !== val) {
+                    $('#dtVacationRequests').column(3).search(val).draw();
+                }
+            });
+    
+            $('.js-ddlYear').on('change', function () {
+                var val = $(this).val();
+    
+                if ($('#dtVacationRequests').column(4).search() !== val) {
+                    $('#dtVacationRequests').column(4).search(val).draw();
+                }
+            });
+    
+            $('.js-resetFilter').on('click',
+                function () {
+                    $('.js-ddlStatus').val('').trigger('change');
+                    $('.js-dateCreated').val('');
+                    $('.js-dateFrom').val('');
+                    $('.js-dateTo').val('');
+                    $('.js-ddlYear').val('').trigger('change');
+    
+                    $('#dtVacationRequests').search('').columns().search('').draw();
+                });
+        });
+        
+    
+
+    </script>
+}

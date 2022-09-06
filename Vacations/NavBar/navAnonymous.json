@@ -1,0 +1,11 @@
+﻿{
+  "version": "4",
+  "lists": [
+    {
+      "icon": "far fa-user-plus text-white",
+      "title": "Login",
+      "showOnSeed": true,
+      "href": "/identity/account/login"
+    }
+  ]
+}
